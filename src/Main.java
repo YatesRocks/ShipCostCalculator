@@ -1,7 +1,10 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.*;
 
 public class Main {
+    private static final Logger log = Logger.getLogger("Main");
+
     private static int get_int() {
         System.out.print("Please enter an integer price: ");
         Scanner in = new Scanner(System.in);
@@ -9,8 +12,8 @@ public class Main {
         try {
             res = in.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println(e);
-            System.out.println("Input an integer please.");
+            log.log(Level.WARNING, "Input an integer please, e.x. '10'");
+            System.out.println("- - - -");
             return get_int();
         }
         return res;
